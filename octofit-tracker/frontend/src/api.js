@@ -1,5 +1,10 @@
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
 
-export function apiUrl(path) {
-  return `${API_BASE_URL}/api/${path.replace(/^\/+/, '')}`
+export const API_BASE_URL = codespaceName
+  ? `https://${codespaceName}-8000.app.github.dev`
+  : 'http://localhost:8000'
+
+export function apiUrl(endpoint) {
+  const path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`
+  return `${API_BASE_URL}${path}`
 }
