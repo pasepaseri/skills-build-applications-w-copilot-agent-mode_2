@@ -2,13 +2,13 @@
 
 ## OctoFit API configuration
 
-In Codespaces, define `VITE_CODESPACE_NAME` in `octofit-tracker/frontend/.env.local`:
+In Codespaces, `VITE_CODESPACE_NAME` must match the active Codespace name. Vite automatically uses the Codespaces-provided `CODESPACE_NAME`; for a local setup that targets a forwarded Codespaces API, define it in `octofit-tracker/frontend/.env.local`:
 
 ```env
 VITE_CODESPACE_NAME=your-codespace-name
 ```
 
-The frontend uses `https://<VITE_CODESPACE_NAME>-8000.app.github.dev/api/` for API requests. Restart the Vite dev server after changing `.env.local`. When the variable is unset, the API URL safely falls back to `http://localhost:8000`.
+The frontend uses `https://<VITE_CODESPACE_NAME>-8000.app.github.dev/api/` for API requests. Restart the Vite dev server after changing `.env.local`. Outside Codespaces, when the variable is unset, the API URL safely falls back to `http://localhost:8000`.
 
 The remaining sections describe the underlying Vite template.
 
